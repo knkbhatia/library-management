@@ -1,0 +1,263 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login / Register</title>
+<style type="text/css">
+
+body {
+	background-color: #FFF;
+        overflow:hidden;
+      }
+       .WaterMarkedTextBox
+        {
+            height: 16px;
+            width: 168px;
+            padding: 2px 2 2 2px;
+            border: 1px solid #BEBEBE;
+            background-color: #F0F8FF;
+            color: gray;
+            font-size: 8pt;
+            text-align: center;
+        }
+        .WaterMarkedTextBoxPSW
+        {
+            background-position: center;
+            height: 16px;
+            width: 168px;
+            padding: 2px 2 2 2px;
+            border: 1px solid #BEBEBE;
+            background-color: #F0F8FF;
+            color: blue;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .NormalTextBox
+        {
+            height: 16px;
+            width: 168px;
+        }
+</style>
+<script>
+    function Focus(objname, waterMarkText) {
+            obj = document.getElementById(objname);
+            if (obj.value == waterMarkText) {
+                obj.value = "";
+                obj.className = "NormalTextBox";
+                if (obj.value == "User ID" || obj.value == "" || obj.value == null) {
+                    obj.style.color = "black";
+                }
+            }
+        }
+        function Blur(objname, waterMarkText) {
+            obj = document.getElementById(objname);
+            if (obj.value == "") {
+                obj.value = waterMarkText;
+                if (objname != "txtPwd") {
+                    obj.className = "WaterMarkedTextBox";
+                }
+                else {
+                    obj.className = "WaterMarkedTextBoxPSW";
+                }
+            }
+            else {
+                obj.className = "NormalTextBox";
+            }
+
+            if (obj.value == "User ID" || obj.value == "" || obj.value == null) {
+                obj.style.color = "gray";
+            }
+        }
+    function formValidation()  
+{  
+var passid = document.registration.password;  
+var cpassid=document.registration.password1;
+var uname = document.registration.uname;  
+var uemail = document.registration.email;
+var intr=document.registration.interest;
+if(allLetter(uname))  
+{  uemail.focus();
+ if(ValidateEmail(uemail)) 
+ {passid.focus();
+if(passid_validation(passid,7,12))  
+{  cpassid.focus();
+    if(confirm(passid,cpassid))
+{  intr.focus();
+   if(interest(intr))
+   {
+window.open("secondpage.html");
+}  
+}   
+}  
+}  
+}
+return false;  
+}
+function passid_validation(passid,mx,my)  
+{  
+var passid_len = passid.length;  
+if (passid_len == 0 ||passid_len >= my || passid_len < mx)  
+{  
+alert("Password should not be empty / length be between "+mx+" to "+my);  
+passid.focus();  
+return false;  
+}  
+return true;  
+}
+function confirm(passid,cpassid)
+{
+    var cpass=cpassid.value;
+    var pass=passid.value;
+if(cpass===pass)
+    {
+        return true;
+    }
+    else
+        {
+            alert("Passwords do not match");
+            passid.focus();
+            return false;
+        }
+    
+}
+function allLetter(uname)  
+{   
+var letters = /^[A-Za-z]+$/;  
+if(uname.value.match(letters))  
+{  
+return true;  
+}  
+else  
+{  
+alert("Username must have alphabet characters only");  
+uname.focus();  
+return false;  
+}  
+}  
+function ValidateEmail(uemail)  
+{  
+var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/; 
+if(uemail.value.match(mailformat))  
+{  
+return true;  
+}  
+else  
+{  
+    alert("You have entered an invalid email address!");  
+uemail.focus();  
+return false;  
+}  
+}  
+function interest(intr)
+{
+    if(intr.value===null || intr.value==="")
+        {alert("Enter the interests");
+            interest.focus();
+            return false;
+        }
+        return true;
+}
+</script>
+<style>
+body
+{
+background: url('bck1.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+</head>
+
+<body>
+<table width="800" height="400" border="0" cellspacing="0" cellpadding="15" bgcolor="#FFFFFF" align="center">
+  <tr>
+    <td width="400" align="center" valign="middle" style="border-right:1px solid #CCCCCC;">
+	<form id='login' method="post" action="login.php">
+      <table width="300" border="0" cellspacing="0" cellpadding="3" >
+         <tr>
+           <td colspan="2"><h1><span style="#3d1400; margin-bottom:-5px;">Login</span></h1></td>
+          </tr>
+         <tr>
+           <td colspan="2">Welcome back! Please enter your account details.</td>
+          </tr>
+
+         <tr>
+           <td width="71">User Id:</td>
+           <td width="229"><input type="text" class="WaterMarkedTextBox" ID="txtUserId" onfocus="Focus(this.id,'User ID');" onblur="Blur(this.id,'User ID');" name="txtUserId" style="padding:5px; width:190px;" /></td>
+          </tr>
+         <tr>
+           <td>Password:</td>
+           <td><input type="password" class="WaterMarkedTextBoxPSW" ID="txtPwd" name="txtPwd" size="12" onfocus="Focus(this.id,'Password');" onblur="Blur(this.id,'Password');" style="padding:5px; width:190px;" /></td>
+           </tr>
+           
+         <tr>
+           <td>&nbsp;</td>
+           <td><input type="submit" value="Login" class="signinbutton" style="width:130px;" title="Login to my account" /></td>
+          </tr>
+         <tr>
+           <td>&nbsp;</td>
+           <td><a href="secondpage.html" target="_self" class="littlelink">Forgot your password?</a></td>
+          </tr>
+          <tr>
+           <td>&nbsp;</td>
+          </tr>
+        </table>
+   </form>    </td>
+    <td width="400" align="center" valign="top">
+      
+      <form method="post" name="registration" action="signup.php">
+        <table width="360" border="0" cellspacing="0" cellpadding="3" align="center">
+        
+          <tr>
+            <td colspan="2"><h1><span style="color:3d1400;  margin-bottom:-5px;">Create Free Account</span></h1></td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" style="padding-bottom:10px;"><span style="color:#990000; font-size:16px;">&#9733; Free Book of the Day</span><br />
+<span style="font-family:Arial, Helvetica, sans-serif; font-size:12px;line-height:1.2;"> &nbsp;<i><span style="font-size:90%">(optional / cancel anytime)</span></i></span></span></td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td><input id="uname" name="uname"  type="text" class="mess" style="padding:5px; width:225px;" /></td>
+          </tr>
+		  <tr>
+            <td>User Id </td>
+            <td><input id="uid" name="uid"  type="text" class="mess" style="padding:5px; width:225px;" /></td>
+          </tr>
+           <tr>
+           <td>Sex</td>
+	   <td><input type="radio" id="sex" name="sex"  value="M">Male<input type="radio" id="sex" name="sex"  value="F">Female</td></tr>
+          <tr>
+            <td width="64">Email</td>
+            <td width="244"><input id="email" name="email"  type="text" class="mess" style="padding:5px; width:225px;" /></td>
+          </tr>
+          <tr>
+	  <td>Type</td>
+	  <td><input type="radio" id="type" name="type"  value="student">Student<input type="radio" name="type" id="type" value="teacher">Teacher</td></tr>
+          <tr>
+            <td>Password</td>
+            <td><input id="password" name="password" type="password"  class="mess" style="padding:5px; width:225px;" /></td>
+          </tr>
+		  <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" name="submit" value="Sign Up" class="signinbutton"  style="width:206px; padding-left:11px;" title="Join Library"/></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input style="vertical-align:bottom;overflow:visible; display:inline; margin:0; padding:0; border:0; cursor:pointer; background-color:white; font-size:11px; position:relative; top:-5px; font-family:Arial, Helvetica, sans-serif; color:#555;" name="Submit" type="submit" value="Sign Up without Book of the Day">
+          </tr>
+        </table>
+    </form>    </td>
+  </tr>
+</table><br />
+
+
+
+</body>
+</html>

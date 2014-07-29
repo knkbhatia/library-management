@@ -1,0 +1,58 @@
+<html>
+<head>
+<style>
+<link rel="stylesheet" type="text/css" href="page2.css">
+</style>
+<script>
+function writedate()
+{
+var tm = document.getElementById("time");
+tm.innerText=Date();
+}
+timer = setInterval(writedate,1000);
+function createMessage()
+{
+var m=document.getElementById("m");
+m.innerText="Your books have been returned";
+}
+</script>
+</head>
+<body onload="writedate()">
+<p>Select the books to be returned</p>
+<table id="return">
+<!-- <tr>
+<td><input type="checkbox" name="book1" value="book1"></td>
+<td>Book1</td>
+</tr>
+<tr>
+<td><input type="checkbox" name="book2" value="book2"></td>
+<td>Book2</td>
+</tr>
+<tr>
+<td><input type="checkbox" name="book3" value="book3"></td>
+<td>Book3</td>
+</tr> -->
+<?php
+$con = odbc_connect("database","system","system");
+
+$a="ALTER SESSION SET current_schema = library";
+$r2=odbc_exec($con,$a);
+$q1="select * from issued_books where userid='knk'";
+$r1=odbc_exec($con,$q1);
+while(odbc_fetch_row($result))
+{
+ echo "<tr>";
+ $n=odbc_result($result,"isbn");
+ $a=odbc_result($result,"doi");
+ echo "<td>".$n."</td><td>".$a."</td></tr>";
+}
+odbc_close($con);
+?>
+</table>
+<input type="submit" onclick="return.php">
+<input type="reset">
+<p id="m" style="color:red" ></p>
+<br><br><br><br><br><br><br><br><br><br><br>
+<p id="time" style="text-align:right"></p>
+</body>
+</html>

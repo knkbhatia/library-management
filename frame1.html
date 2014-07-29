@@ -1,0 +1,45 @@
+<html>
+<head>
+<script>
+var i=0;var j=0;var k=0;var l=0;
+function changeImage()
+{
+i = (i+1)%4
+var ima= document.getElementById("slide1");
+var imga = new Array("lib1.jpg","lib2.jpg","lib3.jpg","lib4.jpg");
+ima.innerHTML='<img src="'+imga[i]+'" width="25%" height="99%"/>';
+//alert(im.innerHTML);
+//alert("t");
+j= (j+1)%4
+var imb= document.getElementById("slide2");
+var imgb = new Array("lib5.jpg","lib6.jpg","lib7.jpg","lib8.jpg");
+imb.innerHTML='<img src="'+imgb[j]+'" width="25%" height="99%"/>';
+//alert(im.innerHTML);
+//alert("t");
+k= (k+1)%4;
+var imc= document.getElementById("slide3");
+var imgc=new Array("lib9.jpg","lib10.cjpg","lib11.jpg","lib12.jpg",);
+imc.innerHTML='<img src="'+imgc[k]+'" width="25%" height="99%"/>';
+//alert(im.innerHTML);
+//alert("t");
+l= (l+1)%4
+var imd = document.getElementById("slide4");
+var imgd = new Array("lib13.jpg","lib14.jpg","lib1.jpg","lib2.jpg");
+imd.innerHTML='<img src="'+imgd[l]+'" width="24%" height="99%"/>';
+//alert(im.innerHTML);
+//alert("t");
+}
+timer2 = setInterval(changeImage,2000);
+</script>
+<style>
+</style>
+</head>
+<body background="button1.jpg" topmargin="0" rightmargin="0" leftmargin="0">
+<span id="slide1"><img src="lib8.jpg" width="25%" height="99%"></span>
+<span id="slide2"><img src="lib11.jpg" width="25%" height="99%"></span>
+<span id="slide3"><img src="lib3.jpg" width="25%" height="99%"></span>
+<span id="slide4"><img src="lib4.jpg" width="24%" height="99%"></span>
+
+<br>
+</body>
+</html>

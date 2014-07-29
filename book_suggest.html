@@ -1,0 +1,43 @@
+<html>
+<head>
+<script>
+function writedate()
+{
+var tm = document.getElementById("time");
+tm.innerText=Date();
+}
+timer = setInterval(writedate,1000);
+</script>
+<style>
+<link rel="stylesheet" type="text/css" href="page2.css">
+</style>
+</head>
+<body>
+<form action="suggestion.php" method="post">
+<p>Enter the name of book you want:</p>
+<table>
+<tr>
+<td>Book Name</td>
+<td><input type="text" size="50" name="book"></td>
+</tr>
+<tr>
+<td>Author</td>
+<td><input type="text" size="30" name="author"></td>
+</tr>
+<tr>
+<td>Type</td>
+<td><input type="text" size="30" name="type"></td>
+</tr>
+<tr>
+<td>Year</td>
+<td><input type="text" size="30" name="year"></td>
+</tr>
+<tr>
+</table>
+<input type="submit" onclick="suggestion.php">
+<input type="reset">
+<p id="m" style="color:red"></p>
+<br><br><br><br><br><br><br>
+<p id="time" style="text-align:right"></p>
+</form>
+</html>

@@ -1,0 +1,123 @@
+<hmtl>
+<head>
+<style>
+<link rel="stylesheet" type="text/css" href="page2.css">
+</style>
+<script>
+function writedate()
+{
+var tm = document.getElementById("time");
+tm.innerText=Date();
+}
+timer = setInterval(writedate,1000);
+</script>
+</head>
+<body>
+<form method="get" action="issue.php">
+<table border='2' align='centre'>
+<tr>
+<th>  Select </th>
+<th> Book  </th>
+<th> Author  </th>
+<th>  Type </th>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='A beautiful Mind'></td>
+<td>  A beautiful Mind  </td>
+<td> Sylvia Nalsar </td>
+<td> Literature </td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Higher Algebra'></input></td>
+<td>Higher Algebra</td>
+<td>Hall and Knight</td>
+<td>Textbook</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Topics in Algebra'></input></td>
+<td>Topics in Algebra</td>
+<td>L.N.Herstein</td>
+<td>Textbook</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Geography of India'></td>
+<td>Geography of India</td>
+<td>Majid Husain</td>
+<td>Textbook</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Inferno'></td>
+<td>Inferno</td>
+<td>Dan Brown</td>
+<td>Literature</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Paths of Glory'></td>
+<td>Paths of Glory</td>
+<td>Jefferey Archer</td>
+<td>Literature</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='India Guide'></td>
+<td>India Guide</td>
+<td>Outlook Group</td>
+<td>Journal</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Taj Mahal'></td>
+<td>Taj Mahal</td>
+<td>Raghu Rai</td>
+<td>Journal</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Design Patterns'></td>
+<td>Design Patterns</td>
+<td>Eric Gamma</td>
+<td>Journal</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Effective Java'></td>
+<td>Effective Java</td>
+<td>Joshua Bloch</td>
+<td>Journal</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Head First PMP'></td>
+<td>Head First PMP</td>
+<td>Andrew Stellman</td>
+<td>Journal</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Data Structures'></td>
+<td>  Data Structures  </td>
+<td>Narasimha</td>
+<td>textbook</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='SCJP Java'></td>
+<td>SCJP Java</td>
+<td>Katherine Sierra</td>
+<td>textbook</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Harry Potter'></td>
+<td>Harry Potter</td>
+<td>J.K.Rowling</td>
+<td>Literature</td>
+</tr>
+<tr>
+<td><input type="checkbox" name='issue[]' value='Playing to Win'></td>
+<td>Playing to Win</td>
+<td>A.G.Lafley</td>
+<td>Literature</td>
+</tr>
+</table>
+<br>
+<br>
+<input type="submit" name="issue[]" onclick="createMessage()"></input>
+</form>
+<p id="issue" style="color:red"></p>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<p id="time" style="text-align:right"></div>
+</body>
+</html>

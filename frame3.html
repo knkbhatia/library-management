@@ -1,0 +1,46 @@
+<html>
+<head>
+<style>
+<link rel="stylesheet" type="text/css" href="page2.css">
+body{background-image:url('background1.jpg');background-repeat:no-repeat;}
+</style>
+<script>
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+t=setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+</script>
+</head>
+
+<body background="lib.jpg" onload="startTime()">
+<p style="color:red">User,You have successfully logged in!</p>
+<?php
+session_start();
+$uid=$_session["uid"];
+echo $uid;
+?>
+<p>No of books issued:3</p>
+<p>Book1:Harry Potter</p>
+<p>Book2:Lord of The Rings</p>
+<p>Book3:Java,The Complete Reference</p>
+<br><br><br><br><br><br><br><br><br>
+<div id="txt" style="text-align:right"></div>
+</body>
+</html>
